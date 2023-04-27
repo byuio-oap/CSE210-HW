@@ -29,6 +29,7 @@ do
                 Console.WriteLine($"It took you {contador} attempts.");
                 Console.Write("Would you like continue playing? (yes or no) ");
                 option=Console.ReadLine();
+                contador=0;
             }
             
         else if (guess>magic)

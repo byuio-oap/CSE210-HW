@@ -14,8 +14,8 @@ class Program
        Job job2= new Job();
            job2._company="Apple";
            job2._jobTitle="Manager";
-           job2._startYear=2019;
-           job2._endYear=2022;   
+           job2._startYear=2022;
+           job2._endYear=2023;   
            //Console.WriteLine(job1.company);
            //Console.WriteLine(job1._jobTitle);
          // job1.Display();

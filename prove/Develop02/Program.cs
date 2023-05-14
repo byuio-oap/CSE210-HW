@@ -1,12 +1,15 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
 
 class Program
 {
+    
     static void Main(string[] args)
     {
-        //Console.WriteLine("Hello Develop02 World!");
-        
-        Develop02.Journal startprogram = new Develop02.Journal();
-        startprogram.Menu();
+    Journal clsJournalInProgram = new Journal();
+    clsJournalInProgram.Menu();
     }
 }

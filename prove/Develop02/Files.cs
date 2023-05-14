@@ -1,51 +1,78 @@
-using System.Net;
-using System.Threading.Tasks.Dataflow;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.IO;
-
-namespace Develop02
-{
-
-    public class Files
+public class Files
     {
+ public string _filename="journal.txt";
+Entry clsEntryInFile =new Entry();
 
-    public string _filename="journal.txt";
 
+        
+ 
 
-       public void CreateJournalFile()
+public void  DisplayEntryFromFiles(Entry clsEntry2)
        {
-        
-        
-        if (!File.Exists(_filename))
+        Console.WriteLine("What is the filename?");
+        Console.Write(">");
+        _filename=Console.ReadLine().Trim();
+        if (File.Exists(_filename))
         {
-          File.CreateText(_filename);  
+          
+          var logFile = File.ReadAllLines(_filename);
+           foreach (var s in logFile) clsEntry2.entryLst.Add(s);
+
+          
         }
+        else
+        {
+          Console.WriteLine("File does not exist!");
+        }
+          //clsEntry2.entryLst=File.ReadAllText(_filename);
+          // string journaltext=File.ReadAllText(_filename_);
+          // Console.WriteLine(journaltext);
+          // string filename = "myFile.txt";
+          //string[] lines = System.IO.File.ReadAllLines(_filename);
+
+          //foreach (string line in lines)
+          //{
+          // string[] parts = line.Split(",");
+
+          // string _dateStr = parts[0];
+          //string lastName_ = parts[1];
+          //Console.WriteLine()
+          //}
        }
-
-       public void  DisplayJournalContents()
+       
+       
+ public void saveEntryToTxTFile(Entry clsEntry)
        {
-        string journaltext=File.ReadAllText(_filename);
-       
-        Console.WriteLine(journaltext);
-       }
-       
-       
-
-       public void addEntryToFile(string prompt,string entrydate,string userInput)
-       {
-      
-
-        File.AppendAllText(_filename,$"\nDate:{entrydate} - Prompt: {prompt}");
-        File.AppendAllText(_filename,($"\n{userInput}"));
+                
+          if (!File.Exists(_filename))
+                {
+                  
+                  Console.WriteLine("What is the filename?");
+                  Console.Write(">");
+                  _filename=Console.ReadLine().Trim();
+                  File.CreateText(_filename);
+                  TextWriter tw = new StreamWriter(_filename);
+                    foreach (String s in clsEntry.entryLst)
+                      tw.WriteLine(s);
+                    tw.Close();
+                }
+          else
+                {
+                  Console.WriteLine("What is the filename?");
+                  Console.Write(">");
+                  _filename=Console.ReadLine().Trim();
+                   TextWriter tw = new StreamWriter(_filename);
+                  foreach (String s in clsEntry.entryLst)
+                           tw.WriteLine(s);
+                  tw.Close();  
+                 }
         
        }
+        
 
 
-
-
-
-    }
 }

@@ -1,0 +1,4 @@
+200
+Simple Goal:; give a talk; prepare to give a talk in sacrament; 100; False
+Eternal Goal:; go to the temple; perform ordinances ; 500; False
+Check List Goal:; reas scriptures; read the book of mormon; 100; True; 2; 500; 2

@@ -1,41 +1,40 @@
-using System;
-
-
-
-
-class Program
+public class Program
 {
-    static void Main(string[] args)
+    private static ScriptureLibrary scriptureLibrary = new ScriptureLibrary();
+
+    public static void Main(string[] args)
     {
-     Reference clsReference = new Reference();
-     clsReference.BuildScriptureRefrence();
-     string scriptReference=clsReference.GetReference();
-    // clsReference.DisplayScriptureReference();
-    Word word = new Word();
-     Scriptures clsScripture = new Scriptures();
-     clsScripture.BuildScripture();
-     string scriptre=clsScripture.GetScripture();
-     word.GetRenderedText(clsScripture);
-  //  word.GetRenderedRef(clsScripture);
-     //Console.WriteLine($"{refer}  {script}");
-     
-     while (word._hiddenWords.Count < word._arrayofWords.Length)
-                    {
-                        word.ShowScripture(scriptReference);
-                        word.GetReadKey();
-                    }
-                    word.ShowScripture(scriptReference);
-    
+        scriptureLibrary.LoadScripturesFromFile("scriptures.txt");
 
+        List<Scripture> scriptures = scriptureLibrary.GetScriptures();
+        foreach (Scripture scripture in scriptures)
+        {
+            Console.WriteLine();
+            scripture.Display();
+            Console.WriteLine();
+            Console.WriteLine("Press enter to continue or type 'quit' to exit...");
+            string input = Console.ReadLine();
+            if (input.ToLower() == "quit")
+            {
+                break;
+            }
 
-     
+            while (!scripture.IsFullyHidden())
+            {
+                scripture.HideRandomWord();
+                Console.Clear();
+                Console.WriteLine();
+                scripture.Display();
+                Console.WriteLine();
+                Console.WriteLine("Press enter to continue or type 'quit' to exit...");
+                input = Console.ReadLine();
+                if (input.ToLower() == "quit")
+                {
+                    break;
+                }
+            }
 
+            Console.Clear();
+        }
     }
-
 }
-
-    
-
-   
-
-

@@ -4,10 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-       //Console.WriteLine("Hello Prep3 World!");
-       //Console.Write("What is the magic number?");
-       //string magicInput=Console.ReadLine();
-       //int magic =int.Parse(magicInput);
+       
        
        int guess=-1;
        int contador=0;

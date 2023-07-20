@@ -24,7 +24,7 @@ class Program
        int lstSize=lstOfNumbers.Count;
        Console.WriteLine($"The sum is: {total}");
        average=total/lstSize;
-       //decimal Raverage = decimal.Round(average,15);
+       
        Console.WriteLine($"The average is : {average}");
        int max=lstOfNumbers.Max();
        Console.WriteLine($"The largest number is: {max}");
